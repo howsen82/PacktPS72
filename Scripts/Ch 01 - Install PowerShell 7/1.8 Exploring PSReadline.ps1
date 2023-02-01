@@ -7,7 +7,7 @@ Get-Command -Module PSReadLine
 
 # 2. Getting the first 10 PSReadLine key handlers
 Get-PSReadLineKeyHandler |
-  Select-Object -First 10
+  Select-Object -First 10 |
     Sort-Object -Property Key |
       Format-Table -Property Key, Function, Description
 

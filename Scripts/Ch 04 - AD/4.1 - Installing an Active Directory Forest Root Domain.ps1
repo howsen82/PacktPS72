@@ -20,7 +20,7 @@ $PasswordHT = @{
   AsPlainText = $true
   Force       = $true
 }
-$SecurePW = ConvertTo-SecureString @$PasswordHT
+$SecurePW = ConvertTo-SecureString @PasswordHT
 
 # 5. Testing DC Forest installation starting on DC1
 $ForestHT = @{
@@ -36,7 +36,7 @@ Test-ADDSForestInstallation @ForestHT -WarningAction SilentlyContinue
 # 6. Creating Forest Root DC on DC1
 $NewActiveDirectoryParameterHashTable = @{
   DomainName                    = 'Reskit.Org'
-  SafeModeAdministratorPassword = $PSS
+  SafeModeAdministratorPassword = $SecurePW
   InstallDNS                    = $true
   DomainMode                    = 'WinThreshold'
   ForestMode                    = 'WinThreshold'
@@ -44,7 +44,7 @@ $NewActiveDirectoryParameterHashTable = @{
   NoRebootOnCompletion          = $true
   WarningAction                 = 'SilentlyContinue'
 }
-Install-ADDSForest @$NewActiveDirectoryParameterHashTable
+Install-ADDSForest @NewActiveDirectoryParameterHashTable
 
 # 7. Checking key AD and related services
 Get-Service -Name DNS, Netlogon

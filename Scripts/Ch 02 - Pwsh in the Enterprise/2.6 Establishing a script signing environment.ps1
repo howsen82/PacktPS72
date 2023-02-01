@@ -26,7 +26,7 @@ Get-ChildItem -Path C:\Foo\Signed.ps1
 
 # 4. Signing your new script
 $SHT = @{
-  Certificate = $cert
+  Certificate = $Cert
   FilePath    = 'C:\Foo\Signed.ps1'
 }
 Set-AuthenticodeSignature @SHT

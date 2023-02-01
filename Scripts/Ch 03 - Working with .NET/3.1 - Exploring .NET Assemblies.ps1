@@ -28,7 +28,7 @@ $AllTheModulesOnThisSystem =
 $AllTheModulesOnThisSystem  | Format-List
 
 # 6. Viewing module manifest
-$Manifest = Get-Content -Path $Mod.Path
+$Manifest = Get-Content -Path $AllTheModulesOnThisSystem.Path
 $Manifest | Select-Object -First 20
 
 # 7. Discovering the module's assembly

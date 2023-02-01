@@ -20,7 +20,7 @@ $PasswordHT = @{
   AsPlainText = $true
   Force       = $true
 }
-$SecurePW = ConvertTo-SecureString @$PasswordHT
+$SecurePW = ConvertTo-SecureString @PasswordHT
 
 # 5. Testing DC Forest installation starting on DC1
 $ForestHT = @{

@@ -17,10 +17,10 @@ Import-Module -Name Get-NetView -Force
 
 # 5. Creating a new folder for NetView output
 $FolderName = 'C:\NetViewOutput'
-New-Item -Path $FolderHName -ItemType Directory | Out-Null
+New-Item -Path $FolderName -ItemType Directory | Out-Null
 
 # 6. Running Get-NetView
-Get-NetView -OutputDirectory $FolderHName
+Get-NetView -OutputDirectory $FolderName
 
 # 7. Viewing the output folder using Get-ChildItem
 $OutputDetails = Get-ChildItem -Path $FolderName
@@ -31,4 +31,4 @@ $Results = $OutputDetails | Select-Object -First 1
 Get-ChildItem -Path $Results
 
 # 9. Viewing IP configuration
-Get-Content -Path $Results\_ipconfig.t
+Get-Content -Path $Results\_ipconfig.txt
